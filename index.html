@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>LEaflet</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js" integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+        crossorigin=""></script>
+    <style>
+        #map {
+            height: 980px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map">
+    </div>
+
+
+    <script type="text/javascript">
+        var values = [{ "Latitude": 43.3446177999999, "Longitude": 5.4351825 }, { "Latitude": 43.2308138, "Longitude": 5.4420166 }, { "Latitude": 49.8985177, "Longitude": 2.3005478 }, { "Latitude": 44.8312466, "Longitude": -0.5721472 }, { "Latitude": 43.7164487999999, "Longitude": 7.2696592 }, { "Latitude": 49.2118869, "Longitude": -0.3697876 }, { "Latitude": 48.84385, "Longitude": 2.3205698 }, { "Latitude": 47.3116286, "Longitude": 5.07324479999999 }, { "Latitude": 48.8048489, "Longitude": 2.2325488 }, { "Latitude": 44.8079502, "Longitude": -0.5951384 }, { "Latitude": 48.7190252, "Longitude": 2.2213265 }, { "Latitude": 43.136473, "Longitude": 6.018688 }, { "Latitude": 43.5617974, "Longitude": 1.4663928 }, { "Latitude": 48.8476985, "Longitude": 2.3592451 }, { "Latitude": 48.7028006, "Longitude": 2.1828032 }, { "Latitude": 43.5658575, "Longitude": 1.4745945 }, { "Latitude": 45.7641266, "Longitude": 3.1111307 }, { "Latitude": 48.5835774, "Longitude": 7.7625442 }, { "Latitude": 43.5627995, "Longitude": 1.4804822 }, { "Latitude": 48.844935, "Longitude": 2.35645 }, { "Latitude": 45.7825705, "Longitude": 4.8771894 }, { "Latitude": 48.8464406, "Longitude": 2.3551613 }, { "Latitude": 48.5813484, "Longitude": 7.7683954 }, { "Latitude": 48.0156747, "Longitude": 0.1520205 }, { "Latitude": 48.8430845, "Longitude": 2.3466789 }, { "Latitude": 45.7825705, "Longitude": 4.8771894 }, { "Latitude": 43.5191514, "Longitude": 5.4476824 }, { "Latitude": 48.7881754, "Longitude": 2.4440995 }, { "Latitude": 48.8103270999999, "Longitude": 2.3580725 }, { "Latitude": 49.2115498, "Longitude": -0.3600656 }, { "Latitude": 49.4174923, "Longitude": 2.825989 }, { "Latitude": 48.666988, "Longitude": 6.159693 }, { "Latitude": 43.4939571, "Longitude": 5.8930665 }, { "Latitude": 45.7816131, "Longitude": 4.87400529999999 }]
+
+        var map = L.map('map', {
+            center: [46, 2],
+            zoom: 6
+        });
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        for (var i = 0; i < values.length; i++) {
+            var circle = L.circle([values[i]["Latitude"], values[i]["Longitude"]], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 25000
+            }).addTo(map);
+        }
+    </script>
+
+</body>
+
+</html>
